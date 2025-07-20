@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "VTOP Captcha Filler",
+	"version": "1.0",
+	"description": "A Simple Captcha Filler",
+	"action": {
+		"default_title": "Credit",
+		"default_popup": "popup.html",
+		"default_icon": "icon.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://vtop.vitbhopal.ac.in/vtop/login/*"],
+			"js": ["tesseract.min.js", "captcha.js"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"worker.min.js",
+				"tessdata/eng.traineddata.gz",
+				"tesseract-core-simd-lstm.wasm.js"
+			],
+			"matches": ["<all_urls>"]
+		}
+	]
+}
